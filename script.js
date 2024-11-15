@@ -45,7 +45,7 @@ const cloneArticles = () => {
 // Initialize circular queue
 cloneArticles();
 
-let scrollIndex = 0;  // Start at the second article (index 1)
+let scrollIndex = 1;  // Start at the second article (index 1, skipping the first clone)
 const articleWidth = getArticleWidth();
 
 // Set the width of the articles container to fit all articles
@@ -57,30 +57,30 @@ const setContainerWidth = () => {
 // Initialize the container width
 setContainerWidth();
 
-// Scroll right
+// Scroll right (next button)
 nextButton.addEventListener('click', () => {
-    if (scrollIndex < articlesContainer.children.length -4) {
+    if (scrollIndex < articlesContainer.children.length - 4) {  // Stop before the last cloned article
         scrollIndex++;
         articlesContainer.style.transition = "transform 0.3s ease";
         articlesContainer.style.transform = `translateX(-${scrollIndex * articleWidth}px)`;
     } else {
-        // If we're at the end (the last article), jump to the second article
-        //articlesContainer.style.transition = "transform 0.3s ease";
-        //articlesContainer.style.transform = `translateX(-${articleWidth}px)`;
-        scrollIndex = 0;
+        // If we're at the end (the last original article), jump to the second article (real article)
+        scrollIndex = 0;  // Reset scrollIndex to the second article
+        articlesContainer.style.transition = "transform 0.3s ease";
+        articlesContainer.style.transform = `translateX(-${scrollIndex * articleWidth}px)`;
     }
 });
 
-// Scroll left
+// Scroll left (prev button)
 prevButton.addEventListener('click', () => {
-    if (scrollIndex > 0) {
+    if (scrollIndex > 0) {  // Don't go past the first original article
         scrollIndex--;
         articlesContainer.style.transition = "transform 0.3s ease";
         articlesContainer.style.transform = `translateX(-${scrollIndex * articleWidth}px)`;
     } else {
-        // If we're at the start (the first article), jump to the second last article
+        // If we're at the start (the first original article), jump to the second last article
+        scrollIndex = articlesContainer.children.length - 4;  // Go to the second last original article
         articlesContainer.style.transition = "transform 0.3s ease";
-        articlesContainer.style.transform = `translateX(-${(articlesContainer.children.length - 4) * articleWidth}px)`;
-        scrollIndex = articlesContainer.children.length - 4;
+        articlesContainer.style.transform = `translateX(-${scrollIndex * articleWidth}px)`;
     }
 });
