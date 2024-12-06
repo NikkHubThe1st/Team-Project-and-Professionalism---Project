@@ -1,238 +1,80 @@
-/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1a1a; /* Dark background for a monotone theme */
-    color: #e0e0e0; /* Light text color for contrast */
+  background-color: rgb(224, 186, 186) !important;
+  margin: 0;
 }
 
-/* Header with top black bar */
-#navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px; /* Height of the top navigation bar */
-    background-color: #000; /* Black background */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    z-index: 1000;
+.navbar-brand {
+  font-weight: bolder;
 }
 
-/* Hamburger Icon */
-#menu-toggle {
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px;
-    margin-left: 20px;
-    z-index: 1001;
+.nav-item {
+  padding-left: 1rem;
 }
 
-/* Side Navigation Menu */
-.side-nav {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #000; /* Black background for side menu */
-    color: #e0e0e0; /* Light text */
-    transition: left 0.3s ease;
-    padding-top: 50px; /* Offset for top bar */
+.navbar {
+  background-color: rgb(224, 169, 169);
 }
 
-.side-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.footer {
+  background-color: rgb(221, 187, 187);
 }
 
-.side-nav ul li {
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #333; /* Subtle divider for each link */
+.form-control {
+  background-color: rgb(224, 186, 186);
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 0;
+  opacity: 1;
 }
 
-.side-nav ul li a {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 18px;
+.form-control .form-inline {
+  width: 220px;
 }
 
-.side-nav ul li a:hover {
-    background-color: #333; /* Darker gray on hover */
+.form-control:focus {
+  color: black;
+  background-color: #fff;
+  border-color: #a75470;
+  box-shadow: none;
 }
 
-/* Articles Section */
-#articles-section {
-    display: flex;
-    align-items: left;
-    justify-content: center;
-    position: relative;
-    padding-top: 80px; /* Space for the header */
-    overflow: hidden; /* Ensure no articles overflow the container */
+.form-control::placeholder {
+  color: rgba(255, 255, 255, .5);
 }
 
-.articles-container {
-    display: flex;
-    gap: 20px; /* Adjust gap to control the space between articles */
-    transition: transform 0.3s ease; /* Smooth transition for scroll */
+.btn {
+  color: #fff;
+  background-color: #a56177;
+  border-color: rgb(224, 186, 186);
+  border-radius: 0;
+  height: 38px;
 }
 
-.article {
-    min-width: 300px;
-    background-color: #333;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+.btn:hover,
+.btn:focus {
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem #a56177;
 }
 
-/* Scroll Arrows */
-.scroll-arrow {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
+.dropdown-menu {
+  padding: 0;
+  border-radius: 0;
+  background-color: rgb(223, 197, 197);
 }
 
-/* Position arrows outside the articles container */
-#prev {
-    left: 10px;
-    z-index: 10;
+.dropdown-item {
+  color: rgba(255, 255, 255, .5);
 }
 
-#next {
-    right: 10px;
-    z-index: 10;
+.dropdown-item:hover {
+  background-color: rgb(224, 186, 186);
+  color: white;
 }
 
-.scroll-arrow:hover {
-    background-color: #444;
+.carousel-caption,
+h3 {
+  font-weight: lighter;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    #articles-section {
-        flex-direction: column;
-    }
-
-    .articles-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-     #menu-toggle {
-        margin-left: 15px;
-    }
-}
-/* Dashboard Title */
-.dashboard-title {
-    font-size: 20px;
-    color: #fff;
-    margin-left: 20px;
-    padding: 15px;
-    flex-grow: 1; /* Push title to the center if side menu expands */
-    text-align: center;
-}
-
-/* Composting Guide */
-#compost-guide {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    background-color: #222; /* Slightly lighter than background for contrast */
-    color: #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#compost-guide h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #fff; /* Make title stand out */
-}
-
-#compost-guide ol {
-    padding-left: 20px;
-    line-height: 1.6;
-}
-
-#compost-guide li {
-    margin-bottom: 10px;
-}
-
-#compost-guide p {
-    margin-top: 15px;
-    font-size: 16px;
-    text-align: center;
-    color: #c0c0c0; /* Slightly dim text for closing statement */
-}
-#articles-section {
-    overflow: hidden; /* Hide overflowing articles */
-}
-#tos-content {
-    padding: 20px;
-    margin-top: 70px; /* Offset for the fixed navbar */
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #222; /* Dark background for content */
-}
-
-#tos-content h2 {
-    text-align: center;
-    color: #fff;
-}
-
-#tos-content h3 {
-    color: #fff;
-}
-
-#tos-content p {
-    color: #c0c0c0;
-    line-height: 1.6;
-}
-
-/* Terms of Service Checkbox */
-#tos-agreement {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-}
-
-#tos-agreement input[type="checkbox"] {
-    margin-right: 10px;
-    accent-color: #007bff; /* Accent color for the checkbox */
-}
-
-/* Submit Button Styling */
-#submitBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#submitBtn:disabled {
-    background-color: #666;
-    cursor: not-allowed;
-}
-
-#submitBtn:hover:enabled {
-    background-color: #0056b3;
+.footer {
+  font-size: x-small;
 }
