@@ -2,6 +2,7 @@
 const menuToggle = document.getElementById('menu-toggle');
 const sideNav = document.getElementById('side-nav');
 
+
 menuToggle.addEventListener('click', () => {
     if (sideNav.style.left === '0px') {
         sideNav.style.left = '-250px';

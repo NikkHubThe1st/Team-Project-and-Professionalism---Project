@@ -23,12 +23,13 @@ body {
 
 /* Hamburger Icon */
 #menu-toggle {
+	position: absolute;
     font-size: 30px;
     color: #fff;
     cursor: pointer;
     padding: 15px;
     margin-left: 20px;
-    z-index: 1001;
+    z-index: 1003;
 }
 
 /* Side Navigation Menu */
@@ -42,6 +43,7 @@ body {
     color: #e0e0e0; /* Light text */
     transition: left 0.3s ease;
     padding-top: 50px; /* Offset for top bar */
+	
 }
 
 .side-nav ul {
@@ -60,6 +62,7 @@ body {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 18px;
+	
 }
 
 .side-nav ul li a:hover {
@@ -235,4 +238,171 @@ body {
 
 #submitBtn:hover:enabled {
     background-color: #0056b3;
+}
+
+        /* Map container styling */
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 80px; /* Offset for the fixed navbar */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ensure the side-nav stays on top of the map */
+        .side-nav {
+            z-index: 1002;
+        }
+   .legend {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1005; /* Higher than the map to ensure visibility */
+    font-size: 14px;
+    color: #333;
+    width: 200px;
+}
+
+.legend h3 {
+    margin: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.legend ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.legend .circle,
+.legend .polygon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.legend .polygon {
+    border-radius: 0;
+}
+/* log in page -->*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Dark background for a monotone theme */
+    color: #e0e0e0; /* Light text color for contrast */
+}
+
+/* Form container */
+.container {
+	position: middle;
+    max-width: 600px; /* Limit the width of the form */
+    margin-top: 80px; /* Offset for fixed navbar */
+    padding: 20px;
+}
+
+/* Form Styling */
+form {
+    background-color: #222; /* Slightly darker background for contrast */
+    padding: 30px; /* Added padding for form elements */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    color: #e0e0e0; /* Light text color */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Form headers */
+form h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Form group (input fields) */
+.form-group {
+    margin-bottom: 20px; /* Space between form fields */
+}
+
+/* Form labels */
+.form-group label {
+	align: center:
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block; /* Ensure the label is above the input field */
+}
+
+/* Form input fields */
+.form-control {
+    width: 100%; /* Full width input */
+    padding: 10px; /* Padding for comfort */
+    border: 1px solid #333; /* Dark border for contrast */
+    border-radius: 5px; /* Rounded edges */
+    background-color: #333; /* Dark background for input fields */
+    color: #fff; /* White text for input fields */
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+	align: center:
+}
+
+/* Form input hover effect */
+.form-control:focus {
+    outline: none;
+    border-color: #007bff; /* Light blue border on focus */
+    background-color: #444; /* Slightly lighter background */
+	align: center:
+}
+
+/* Submit buttons */
+button[type="submit"] {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px; /* Rounded edges */
+    width: 100%; /* Full width button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Button hover effect */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Spacing between forms */
+.mt-5 {
+    margin-top: 50px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px; /* Less padding for smaller screens */
+    }
+
+    form {
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
+    .form-group {
+        margin-bottom: 15px; /* Less space between form fields on small screens */
+    }
+
+    form h1 {
+        font-size: 20px; /* Smaller heading for mobile */
+    }
 }
