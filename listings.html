@@ -31,7 +31,21 @@
     </nav>
 </div>
 
-<div id="listings" class="listings"></div>
+<!--Search bar stored in header, requires JS functionality-->
+<header class="header">
+    <h1>Search Listings</h1>
+    <div class="search-bar">
+        <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search for bins"
+        />
+        <button id="search-button">Search</button>
+    </div>
+</header>
+
+<!--Results stored in main-->
+<main class="listings">
        <!-- Example Listing, needs development to use data from myadmin - replacing placeholder text with variables referring to DB -->
   <div>
     <h2>HUGE COMPOST BIN</h2>
@@ -48,7 +62,7 @@
     <p><strong>Weight:</strong> 40kg</p>
     <p><strong>Description:</strong> Been collecting compost bins for a while, my wife told me to get rid of some.</p>
   </div>
-</div>
+</main>
 
   <script src="script.js"></script>
     </body>
