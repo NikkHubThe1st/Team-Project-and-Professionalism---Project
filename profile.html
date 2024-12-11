@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div id="navbar">
+        <div id="menu-toggle" class="menu-icon">
+            &#9776; <!-- Menu Icon -->
+        </div>
+        <h1 class="dashboard-title">Dashboard</h1>
+        <nav id="side-nav" class="side-nav">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Report Issue</a></li>
+                <li><a href="TOS.html">TOS</a></li>
+				<li><a href="#">Profile</a></li>
+                <li><a href="login.html">Log In</a></li>
+				<li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--User Profile Header-->
+    <header class="profile-header">
+        <div class="user-info">
+            <img src="profile-picture.jpg" alt="Profile Picture" class="profile-pic">
+            <h1 id="user-name">Joe Bloggs</h1>
+            <p id="user-location">Yoker, UK</p>
+            <p id="user-Description">Yoker's biggest compost bin enthusiast.</p>
+        </div>
+    </header>
+
+    <!--User listings, to be populated using JS-->
+    <main class="profile-main">
+        <section class="marketplace-listings">
+            <h2>Current Listings</h2>
+            <div>
+                <h2>HUGE COMPOST BIN</h2>
+                <img src="CompostBin.jpg" alt="HUGE COMPOST BIN" style="width:200px;height:auto;">
+                <p><strong>Price:</strong> $5 and a steak bake</p>
+                <p><strong>Weight:</strong> 100kg</p>
+                <p><strong>Description:</strong> Holy moly, that's a huge compost bin!</p>
+              </div>
+            <div id="listings-container">
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
