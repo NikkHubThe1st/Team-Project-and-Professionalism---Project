@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,62 +9,60 @@
 </head>
 
 <body>
-    
-   <!-- Navigation Menu -->
-   <div id="navbar">
-    <div id="menu-toggle" class="menu-icon">
-        &#9776; <!-- burger icon -->
+
+    <!-- Navigation Menu -->
+    <div id="navbar">
+        <div id="menu-toggle" class="menu-icon">
+            &#9776; <!-- burger icon -->
+        </div>
+        <h1 class="dashboard-title">Listings</h1>
+        <nav id="side-nav" class="side-nav">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="profileListings.html">User Search</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Report Issue</a></li>
+                <li><a href="TOS.html">TOS</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
     </div>
-    <h1 class="dashboard-title">Listings</h1>
-    <nav id="side-nav" class="side-nav">
-        <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="listings.html">Listings</a></li>
-            <li><a href="profileListings.html">User Search</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="#">Rewards</a></li>
-            <li><a href="#">Report Issue</a></li>
-            <li><a href="TOS.html">TOS</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="login.html">Log In</a></li>
-            <li><a href="map.html">Map</a></li>
-        </ul>
-    </nav>
-</div>
 
-<!--Search bar stored in header, requires JS functionality-->
-<header class="header">
-    <h1>Search Listings</h1>
-    <div class="search-bar">
-        <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Search for bins"
-        />
-        <button id="search-button">Search</button>
-    </div>
-</header>
+    <!--Search bar stored in header, requires JS functionality-->
+    <header class="header">
+        <h1>Search Listings</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for bins" />
+            <button id="search-button">Search</button>
+        </div>
+    </header>
 
-<!--Results stored in main-->
-<main class="listings">
-       <!-- Example Listing, needs development to use data from myadmin - replacing placeholder text with variables referring to DB -->
-  <div>
-    <h2>HUGE COMPOST BIN</h2>
-    <img src="CompostBin.jpg" alt="HUGE COMPOST BIN" style="width:200px;height:auto;">
-    <p><strong>Price:</strong> $5 and a steak bake</p>
-    <p><strong>Weight:</strong> 100kg</p>
-    <p><strong>Description:</strong> Holy moly, that's a huge compost bin!</p>
-  </div>
+    <!--Results stored in main-->
+    <main class="listings">
+        <!-- Example Listing, needs development to use data from myadmin - replacing placeholder text with variables referring to DB -->
+        <div>
+            <h2>HUGE COMPOST BIN</h2>
+            <img src="CompostBin.jpg" alt="HUGE COMPOST BIN" style="width:200px;height:auto;">
+            <p><strong>Price:</strong> $5 and a steak bake</p>
+            <p><strong>Weight:</strong> 100kg</p>
+            <p><strong>Description:</strong> Holy moly, that's a huge compost bin!</p>
+        </div>
 
-  <div>
-    <h2>Mid compost bin</h2>
-    <img src="MidCompostBin.jpg" alt="it's okay, its a compost bin" style="width:200px;height:auto;">
-    <p><strong>Price:</strong> $5</p>
-    <p><strong>Weight:</strong> 40kg</p>
-    <p><strong>Description:</strong> Been collecting compost bins for a while, my wife told me to get rid of some.</p>
-  </div>
-</main>
+        <div>
+            <h2>Mid compost bin</h2>
+            <img src="MidCompostBin.jpg" alt="it's okay, its a compost bin" style="width:200px;height:auto;">
+            <p><strong>Price:</strong> $5</p>
+            <p><strong>Weight:</strong> 40kg</p>
+            <p><strong>Description:</strong> Been collecting compost bins for a while, my wife told me to get rid of
+                some.</p>
+        </div>
+    </main>
 
-  <script src="script.js"></script>
-    </body>
-    </html>
+    <script src="script.js"></script>
+</body>
+
+</html>
