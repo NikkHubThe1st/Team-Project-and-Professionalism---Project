@@ -1,3 +1,15 @@
+<?php
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once("functions.php");
+
+// Validate login and get the result array
+$result = validate_login();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +37,6 @@
 				<li><a href="#">Profile</a></li>
                 <li><a href="login.html">Log In</a></li>
 				<li><a href="map.html">Map</a></li>
-        <li><a href="checkout.html">Checkout</a></li>
             </ul>
         </nav>
     </div>
