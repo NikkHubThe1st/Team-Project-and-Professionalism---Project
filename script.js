@@ -76,3 +76,54 @@ setInterval(() => {
     incrementPointer();
 }, 5000);
 
+// Get the listings container
+const listingsContainer = document.getElementById('listings-container');
+const verticalPrevButton = document.getElementById('Verticalprev');
+const verticalNextButton = document.getElementById('Verticalnext');
+
+// Add event listeners for the vertical scroll buttons
+verticalPrevButton.addEventListener('click', () => {
+    listingsContainer.scrollBy({
+        top: -100, // Scroll up by 100px
+        behavior: 'smooth'
+    });
+});
+
+verticalNextButton.addEventListener('click', () => {
+    listingsContainer.scrollBy({
+        top: 100, // Scroll down by 100px
+        behavior: 'smooth'
+    });
+});
+
+// Fix scroll wheel behavior
+listingsContainer.addEventListener('wheel', (event) => {
+    // Prevent default scroll behavior
+    event.preventDefault();
+
+    // Scroll up or down based on wheel direction
+    if (event.deltaY > 0) {
+        listingsContainer.scrollBy({
+            top: 100, // Scroll down by 100px
+            behavior: 'smooth'
+        });
+    } else {
+        listingsContainer.scrollBy({
+            top: -100, // Scroll up by 100px
+            behavior: 'smooth'
+        });
+    }
+});
+
+// Search functionality
+searchBar.addEventListener('input', (e) => {
+    const searchQuery = e.target.value.toLowerCase();
+    document.querySelectorAll('.listing').forEach(listing => {
+        const title = listing.querySelector('h2').textContent.toLowerCase();
+        if (title.includes(searchQuery)) {
+            listing.style.display = 'flex';
+        } else {
+            listing.style.display = 'none';
+        }
+    });
+});
