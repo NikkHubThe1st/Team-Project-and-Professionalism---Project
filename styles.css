@@ -147,8 +147,16 @@ body {
     text-align: center;
 }
 
-/* Composting Guide */
-#compost-guide {
+.grid-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2,1fr);
+    grid-gap: 10px;
+    padding: 5px;
+
+}
+
+.grid-item{
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
@@ -158,28 +166,36 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#compost-guide h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #fff; /* Make title stand out */
+.grid-map{
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
-#compost-guide ol {
-    padding-left: 20px;
-    line-height: 1.6;
+.grid-img-index_aboutUs{
+    background-image: url("index_aboutUs.jpg");
+    background-size:cover;
+    background-position: center;
 }
 
-#compost-guide li {
-    margin-bottom: 10px;
+.grid-img-index_step1{
+    background-image: url("index_step1.jpg");
+    background-size:cover;
+    background-position: center;
 }
 
-#compost-guide p {
-    margin-top: 15px;
-    font-size: 16px;
-    text-align: center;
-    color: #c0c0c0; /* Slightly dim text for closing statement */
+.grid-img-index_step2{
+    background-image: url("index_step2.jpg");
+    background-size:cover;
+    background-position: center;
 }
+
+.grid-img-index_step3{
+    background-image: url("index_step3.jpg");
+    background-size:cover;
+    background-position: center;
+}
+
 #articles-section {
     overflow: hidden; /* Hide overflowing articles */
 }
@@ -340,7 +356,7 @@ form h1 {
 
 /* Form labels */
 .form-group label {
-	align: center:
+	align: center;
     font-size: 16px;
     margin-bottom: 5px;
     display: block; /* Ensure the label is above the input field */
@@ -356,7 +372,7 @@ form h1 {
     color: #fff; /* White text for input fields */
     font-size: 16px;
     transition: background-color 0.3s ease; /* Smooth background color transition */
-	align: center:
+	align: center;
 }
 
 /* Form input hover effect */
@@ -364,7 +380,7 @@ form h1 {
     outline: none;
     border-color: #007bff; /* Light blue border on focus */
     background-color: #444; /* Slightly lighter background */
-	align: center:
+	align: center;
 }
 
 /* Submit buttons */

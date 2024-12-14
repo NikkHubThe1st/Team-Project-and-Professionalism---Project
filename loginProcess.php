@@ -1,3 +1,15 @@
+<?php
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once("functions.php");
+
+// Validate login and get the result array
+$result = validate_login();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,27 +22,24 @@
 
 <body>
 
-  <!-- Navigation Menu -->
+  </nav>
   <div id="navbar">
-    <div id="menu-toggle" class="menu-icon">
-        &#9776; <!-- burger icon -->
+        <div id="menu-toggle" class="menu-icon">
+            &#9776; <!-- Hamburger Icon -->
+        </div>
+        <h1 class="dashboard-title">Dashboard</h1>
+        <nav id="side-nav" class="side-nav">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#">Rewards</a></li>
+                <li><a href="#">Report Issue</a></li>
+                <li><a href="TOS.html">TOS</a></li>
+				<li><a href="#">Profile</a></li>
+                <li><a href="login.html">Log In</a></li>
+				<li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
     </div>
-    <h1 class="dashboard-title">Login</h1>
-    <nav id="side-nav" class="side-nav">
-        <ul>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><a href="listings.html">Listings</a></li>
-          <li><a href="profileListings.html">User Search</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="#">Rewards</a></li>
-          <li><a href="reportIssue.html">Report Issue</a></li>
-          <li><a href="TOS.html">TOS</a></li>
-          <li><a href="login.html">Log In</a></li>
-          <li><a href="map.html">Map</a></li>
-          <li><a href="checkout.html">Checkout</a></li>
-        </ul>
-    </nav>
-</div>
 
   <div class="container mt-5">
     <div class="row">
@@ -55,7 +64,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <form class="p-4 bg-white rounded shadow" method="post" action="register.php">
-          <h1>Register To Join CompostConnect</h1>
+          <h1>Register To Join ScranSavers</h1>
           <div class="form-group">
             <label for="firstname">First Name:</label>
             <input type="text" class="form-control" name="firstname" required>
@@ -81,8 +90,8 @@
       </div>
     </div>
   </div>
-  
- 
+
+
 </body>
 <script src ="script.js"> </script>
 
