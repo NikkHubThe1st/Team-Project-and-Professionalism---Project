@@ -3,8 +3,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Dark background for a monotone theme */
-    color: #e0e0e0; /* Light text color for contrast */
+    background-color: #1a1a1a;
+    /* Dark background for a monotone theme */
+    color: #e0e0e0;
+    /* Light text color for contrast */
 }
 
 /* Header with top black bar */
@@ -13,8 +15,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Height of the top navigation bar */
-    background-color: #000; /* Black background */
+    height: 50px;
+    /* Height of the top navigation bar */
+    background-color: #000;
+    /* Black background */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -23,7 +27,7 @@ body {
 
 /* Hamburger Icon */
 #menu-toggle {
-	position: absolute;
+    position: absolute;
     font-size: 30px;
     color: #fff;
     cursor: pointer;
@@ -39,11 +43,14 @@ body {
     left: -250px;
     width: 250px;
     height: 100%;
-    background-color: #000; /* Black background for side menu */
-    color: #e0e0e0; /* Light text */
+    background-color: #000;
+    /* Black background for side menu */
+    color: #e0e0e0;
+    /* Light text */
     transition: left 0.3s ease;
-    padding-top: 50px; /* Offset for top bar */
-	
+    padding-top: 50px;
+    /* Offset for top bar */
+
 }
 
 .side-nav ul {
@@ -55,18 +62,20 @@ body {
 .side-nav ul li {
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #333; /* Subtle divider for each link */
+    border-bottom: 1px solid #333;
+    /* Subtle divider for each link */
 }
 
 .side-nav ul li a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 18px;
-	
+
 }
 
 .side-nav ul li a:hover {
-    background-color: #333; /* Darker gray on hover */
+    background-color: #333;
+    /* Darker gray on hover */
 }
 
 /* Articles Section */
@@ -75,14 +84,18 @@ body {
     align-items: left;
     justify-content: center;
     position: relative;
-    padding-top: 80px; /* Space for the header */
-    overflow: hidden; /* Ensure no articles overflow the container */
+    padding-top: 80px;
+    /* Space for the header */
+    overflow: hidden;
+    /* Ensure no articles overflow the container */
 }
 
 .articles-container {
     display: flex;
-    gap: 20px; /* Adjust gap to control the space between articles */
-    transition: transform 0.3s ease; /* Smooth transition for scroll */
+    gap: 20px;
+    /* Adjust gap to control the space between articles */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scroll */
 }
 
 .article {
@@ -113,11 +126,16 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding-top: 100px; /* Space for the header */
-    height: 800px; /* Fixed height for scrolling */
-    overflow-y: scroll; /* Enable vertical scroll */
-    scrollbar-width: thin; /* Thinner scrollbar */
-    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    padding-top: 100px;
+    /* Space for the header */
+    height: 800px;
+    /* Fixed height for scrolling */
+    overflow-y: scroll;
+    /* Enable vertical scroll */
+    scrollbar-width: thin;
+    /* Thinner scrollbar */
+    -ms-overflow-style: none;
+    /* Hide scrollbar for IE and Edge */
 }
 
 /* Scroll Arrows */
@@ -188,78 +206,85 @@ body {
         gap: 10px;
     }
 
-     #menu-toggle {
+    #menu-toggle {
         margin-left: 15px;
     }
 }
+
 /* Dashboard Title */
 .dashboard-title {
     font-size: 20px;
     color: #fff;
     margin-left: 20px;
     padding: 15px;
-    flex-grow: 1; /* Push title to the center if side menu expands */
+    flex-grow: 1;
+    /* Push title to the center if side menu expands */
     text-align: center;
 }
 
-.grid-container{
-    display:grid;
+.grid-container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-gap: 10px;
     padding: 5px;
 
 }
 
-.grid-item{
+.grid-item {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
-    background-color: #222; /* Slightly lighter than background for contrast */
+    background-color: #222;
+    /* Slightly lighter than background for contrast */
     color: #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.grid-map{
+.grid-map {
     display: grid;
     align-items: center;
     justify-content: center;
 }
 
-.grid-img-index_aboutUs{
+.grid-img-index_aboutUs {
     background-image: url("index_aboutUs.jpg");
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 
-.grid-img-index_step1{
+.grid-img-index_step1 {
     background-image: url("index_step1.jpg");
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 
-.grid-img-index_step2{
+.grid-img-index_step2 {
     background-image: url("index_step2.jpg");
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 
-.grid-img-index_step3{
+.grid-img-index_step3 {
     background-image: url("index_step3.jpg");
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 
 #articles-section {
-    overflow: hidden; /* Hide overflowing articles */
+    overflow: hidden;
+    /* Hide overflowing articles */
 }
+
 #tos-content {
     padding: 20px;
-    margin-top: 70px; /* Offset for the fixed navbar */
+    margin-top: 70px;
+    /* Offset for the fixed navbar */
     max-width: 800px;
     margin: 0 auto;
-    background-color: #222; /* Dark background for content */
+    background-color: #222;
+    /* Dark background for content */
 }
 
 #tos-content h2 {
@@ -286,7 +311,8 @@ body {
 
 #tos-agreement input[type="checkbox"] {
     margin-right: 10px;
-    accent-color: #007bff; /* Accent color for the checkbox */
+    accent-color: #007bff;
+    /* Accent color for the checkbox */
 }
 
 /* Submit Button Styling */
@@ -311,20 +337,22 @@ body {
     background-color: #0056b3;
 }
 
-        /* Map container styling */
-        #map {
-            height: 500px;
-            width: 100%;
-            margin-top: 80px; /* Offset for the fixed navbar */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+/* Map container styling */
+#map {
+    height: 500px;
+    width: 100%;
+    margin-top: 80px;
+    /* Offset for the fixed navbar */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-        /* Ensure the side-nav stays on top of the map */
-        .side-nav {
-            z-index: 1002;
-        }
-   .legend {
+/* Ensure the side-nav stays on top of the map */
+.side-nav {
+    z-index: 1002;
+}
+
+.legend {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -332,7 +360,8 @@ body {
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1005; /* Higher than the map to ensure visibility */
+    z-index: 1005;
+    /* Higher than the map to ensure visibility */
     font-size: 14px;
     color: #333;
     width: 200px;
@@ -369,31 +398,42 @@ body {
 .legend .polygon {
     border-radius: 0;
 }
+
 /* log in page -->*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* Dark background for a monotone theme */
-    color: #e0e0e0; /* Light text color for contrast */
+    background-color: #1a1a1a;
+    /* Dark background for a monotone theme */
+    color: #e0e0e0;
+    /* Light text color for contrast */
 }
 
 /* Form container */
 .container {
-	position: middle;
-    max-width: 600px; /* Limit the width of the form */
-    margin-top: 80px; /* Offset for fixed navbar */
+    position: middle;
+    max-width: 600px;
+    /* Limit the width of the form */
+    margin-top: 80px;
+    /* Offset for fixed navbar */
     padding: 20px;
 }
 
 /* Form Styling */
 form {
-    background-color: #222; /* Slightly darker background for contrast */
-    padding: 30px; /* Added padding for form elements */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
-    color: #e0e0e0; /* Light text color */
-    transition: transform 0.3s ease; /* Smooth transition effect */
+    background-color: #222;
+    /* Slightly darker background for contrast */
+    padding: 30px;
+    /* Added padding for form elements */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Box shadow for depth */
+    color: #e0e0e0;
+    /* Light text color */
+    transition: transform 0.3s ease;
+    /* Smooth transition effect */
 }
 
 /* Form headers */
@@ -406,86 +446,113 @@ form h1 {
 
 /* Form group (input fields) */
 .form-group {
-    margin-bottom: 20px; /* Space between form fields */
+    margin-bottom: 20px;
+    /* Space between form fields */
 }
 
 /* Form labels */
 .form-group label {
-	align: center;
+    align: center;
     font-size: 16px;
     margin-bottom: 5px;
-    display: block; /* Ensure the label is above the input field */
+    display: block;
+    /* Ensure the label is above the input field */
 }
 
 /* Form input fields */
 .form-control {
-    width: 100%; /* Full width input */
-    padding: 10px; /* Padding for comfort */
-    border: 1px solid #333; /* Dark border for contrast */
-    border-radius: 5px; /* Rounded edges */
-    background-color: #333; /* Dark background for input fields */
-    color: #fff; /* White text for input fields */
+    width: 100%;
+    /* Full width input */
+    padding: 10px;
+    /* Padding for comfort */
+    border: 1px solid #333;
+    /* Dark border for contrast */
+    border-radius: 5px;
+    /* Rounded edges */
+    background-color: #333;
+    /* Dark background for input fields */
+    color: #fff;
+    /* White text for input fields */
     font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-	align: center;
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
+    align: center;
 }
 
 /* Form input hover effect */
 .form-control:focus {
     outline: none;
-    border-color: #007bff; /* Light blue border on focus */
-    background-color: #444; /* Slightly lighter background */
-	align: center;
+    border-color: #007bff;
+    /* Light blue border on focus */
+    background-color: #444;
+    /* Slightly lighter background */
+    align: center;
 }
 
 /* Submit buttons */
 button[type="submit"] {
-    background-color: #007bff; /* Blue background */
+    background-color: #007bff;
+    /* Blue background */
     color: white;
     padding: 10px;
     font-size: 18px;
     border: none;
-    border-radius: 5px; /* Rounded edges */
-    width: 100%; /* Full width button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition effect */
+    border-radius: 5px;
+    /* Rounded edges */
+    width: 100%;
+    /* Full width button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition effect */
 }
 
 /* Button hover effect */
 button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
+    /* Darker blue on hover */
 }
 
 /* Spacing between forms */
 .mt-5 {
     margin-top: 50px;
 }
+
 @media screen and (max-width: 768px) {
     .container {
-        padding: 10px; /* Less padding for smaller screens */
+        padding: 10px;
+        /* Less padding for smaller screens */
     }
 
     form {
-        padding: 20px; /* Reduced padding for smaller screens */
+        padding: 20px;
+        /* Reduced padding for smaller screens */
     }
 
     .form-group {
-        margin-bottom: 15px; /* Less space between form fields on small screens */
+        margin-bottom: 15px;
+        /* Less space between form fields on small screens */
     }
 
     form h1 {
-        font-size: 20px; /* Smaller heading for mobile */
+        font-size: 20px;
+        /* Smaller heading for mobile */
     }
 }
 
 /* Profile Header Styling */
 .profile-header {
-    background-color: #000;  /* Black background */
-    color: white;  /* White text to contrast against the black background */
-    padding: 40px 20px 20px 20px;  /* Extra padding at the top to account for spacing from the navbar */
+    background-color: #000;
+    /* Black background */
+    color: white;
+    /* White text to contrast against the black background */
+    padding: 40px 20px 20px 20px;
+    /* Extra padding at the top to account for spacing from the navbar */
     text-align: center;
-    border-bottom: 2px solid #333;  /* Dark border to match the theme */
-    margin-top: 60px;  /* Ensure it's below the navbar */
+    border-bottom: 2px solid #333;
+    /* Dark border to match the theme */
+    margin-top: 60px;
+    /* Ensure it's below the navbar */
 }
 
 .user-info {
@@ -496,34 +563,70 @@ button[type="submit"]:hover {
 }
 
 .profile-pic {
-    border-radius: 50%;  /* Circular profile picture */
+    border-radius: 50%;
+    /* Circular profile picture */
     width: 120px;
     height: 120px;
-    object-fit: cover;  /* Ensure the image covers the entire circle */
-    border: 3px solid #888;  /* Border to add a little emphasis around the profile picture */
+    object-fit: cover;
+    /* Ensure the image covers the entire circle */
+    border: 3px solid #888;
+    /* Border to add a little emphasis around the profile picture */
 }
 
 h1#user-name {
     font-size: 24px;
-    color: white;  /* White text for the user's name */
+    color: white;
+    /* White text for the user's name */
     margin: 0;
 }
 
 p#user-location {
     font-size: 16px;
-    color: #bbb;  /* Light grey for location to stand out against black background */
+    color: #bbb;
+    /* Light grey for location to stand out against black background */
     margin: 5px 0;
 }
 
 p#user-Description {
     font-size: 14px;
-    color: #ccc;  /* Lighter color for description */
+    color: #ccc;
+    /* Lighter color for description */
     margin: 0;
-    font-style: italic;  /* Italics for the description */
+    font-style: italic;
+    /* Italics for the description */
 }
 
 /* Hover effect for the profile picture */
 .profile-pic:hover {
-    transform: scale(1.05);  /* Slight zoom effect */
+    transform: scale(1.05);
+    /* Slight zoom effect */
     transition: transform 0.3s ease-in-out;
+}
+
+.milestone {
+    text-align: center; /* Center the text and image */
+    margin: 20px 0; /* Add some space around the award section */
+    padding: 20px;
+    border: 2px solid #007BFF; /* Border color */
+    border-radius: 10px; /* Slightly rounded corners */
+    background-color: #f9f9f9; /* Light background for the award section */
+    width: 250px; /* Fixed width for the award section */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow around the section */
+}
+.milestone img {
+    width: 100px; /* Set the width of the image */
+    height: 100px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits well within the circle */
+    margin-bottom: 15px; /* Space between image and description */
+}
+.milestone p {
+    font-size: 14px; /* Smaller text size for description */
+    color: #555; /* Slightly dark color for the text */
+    margin: 0; /* Remove any default margin */
+}
+.Award h2 {
+    font-size: 14px; /* Smaller text size for description */
+    color: #555; /* Slightly dark color for the text */
+    margin: 0; /* Remove any default margin */
 }

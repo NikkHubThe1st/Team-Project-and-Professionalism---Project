@@ -24,7 +24,7 @@
                 <li><a href="reportIssue.html">Report Issue</a></li>
                 <li><a href="TOS.html">TOS</a></li>
                 <li><a href="login.html">Log In</a></li>
-				<li><a href="map.html">Map</a></li>
+                <li><a href="map.html">Map</a></li>
                 <li><a href="checkout.html">Checkout</a></li>
             </ul>
         </nav>
@@ -40,9 +40,25 @@
         </div>
     </header>
 
+    <!--User milestone section for show offs-->
+    <section id="user-milestones-section">
+        <h2 class="listings-heading">My Milestones!</h2>
+        <div id="articles-section">
+            <button id="prev" class="scroll-arrow">&#8249;</button>
+            <div id="articles-container" class="articles-container">
+                <div class="milestone">
+                    <p><strong>BIN ENTREPRENUER!</strong>
+                        <img src="binentreprenuer.jpg">
+                    <p><strong>Purchase 100 compost bins!</strong></p>
+                </div>
+            </div>
+            <button id="next" class="scroll-arrow">&#8250;</button>
+        </div>
+    </section>
+
     <!--User listings-->
     <section id="user-listings-section">
-        <h2 class="listings-heading">Current User's Listings</h2>
+        <h2 class="listings-heading">My Listings</h2>
         <div id="articles-section">
             <button id="prev" class="scroll-arrow">&#8249;</button>
             <div id="articles-container" class="articles-container">
@@ -53,19 +69,18 @@
                     <p><strong>Price:</strong> $5 and a steak bake</p>
                     <p><strong>Weight:</strong> 100kg</p>
                     <p><strong>Description:</strong> Holy moly, that's a huge compost bin!</p>
-                    <button class="addToCart-button">Add to Cart</button>
                 </div>
-                
+
                 <div class="article">
                     <h2>Mid compost bin</h2>
                     <img src="MidCompostBin.jpg" alt="it's okay, it's a compost bin" style="width:150px;height:auto;">
                     <p><strong>User:</strong> Adams Adams</p>
                     <p><strong>Price:</strong> $5</p>
                     <p><strong>Weight:</strong> 40kg</p>
-                    <p><strong>Description:</strong> Been collecting compost bins for a while, my wife told me to get rid of some.</p>
-                    <button class="addToCart-button">Add to Cart</button>
+                    <p><strong>Description:</strong> Been collecting compost bins for a while, my wife told me to get
+                        rid of some.</p>
                 </div>
-    
+
             </div>
             <button id="next" class="scroll-arrow">&#8250;</button>
         </div>
@@ -82,11 +97,12 @@
                 <p><strong>Weight:</strong> 100kg</p>
                 <p><strong>Description:</strong> Holy moly, that's a huge compost bin!</p>
                 <P><strong>Ordered:</strong>14/12/2024</P>
-                <button class="viewMap-button">View Map</button>
+                <a href="map.html">
+                    <button class="viewMap-button">View Map</button>
+                </a>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
