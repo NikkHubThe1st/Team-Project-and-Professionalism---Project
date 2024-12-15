@@ -150,14 +150,6 @@ body {
     z-index: 2;
 }
 
-#Verticalprev {
-    top: 10px;
-}
-
-#Verticalnext {
-    bottom: 10px;
-}
-
 /* Hide the scrollbar but keep the functionality */
 #listings-section::-webkit-scrollbar {
     width: 8px;
