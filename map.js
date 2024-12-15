@@ -40,7 +40,7 @@ const blueCirclesData = [
 ];
 
 // Loop through the data and create blue circles
-blueCirclesData.forEach(function(coords) {
+blueCirclesData.forEach(function (coords) {
     L.circle(coords, {
         color: 'blue',  // Outline color
         fillColor: '#03f',  // Fill color

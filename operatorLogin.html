@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Login Page</title>
+</head>
+
+<body>
+
+  <!-- Navigation Menu -->
+  <div id="navbar">
+    <div id="menu-toggle" class="menu-icon">
+      &#9776; <!-- burger icon -->
+    </div>
+    <h1 class="dashboard-title">Login</h1>
+    <nav id="side-nav" class="side-nav">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="listings.html">Listings</a></li>
+        <li><a href="profileListings.html">User Search</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#">Rewards</a></li>
+        <li><a href="reportIssue.html">Report Issue</a></li>
+        <li><a href="TOS.html">TOS</a></li>
+        <li><a href="login.html">Log In</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <form class="p-4 bg-white rounded shadow" method="post" action="listingsOperator.html">
+          <h1>Operator Login</h1>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn btn-block btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <a href="login.html">
+    <button>Standard login</button>
+  </a>
+
+</body>
+<script src="script.js"> </script>
+
+</html>
