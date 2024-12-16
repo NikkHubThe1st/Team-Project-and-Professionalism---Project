@@ -2,7 +2,7 @@
 
 function getConnection() {
     try {
-        $conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
+        $conn = new PDO("mysql:host=nuwebspace_db; dbname=w2110937", "w2110937", "/Poppy2003");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
