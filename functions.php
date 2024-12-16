@@ -2,7 +2,8 @@
 
 function getConnection() {
     try {
-        $conn = new PDO("mysql:host=nuwebspace_db; dbname=w2110937", "w2110937", "/Poppy2003");
+       $conn = new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
+		#$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
@@ -10,7 +11,7 @@ function getConnection() {
     }
 }
 #$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
-
+# link to website -> https://w21011937.nuwebspace.co.uk/Database/listings.html
 function validate_login() {
     $input = array();
     $errors = array();
