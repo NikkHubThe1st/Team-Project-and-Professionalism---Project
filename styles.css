@@ -150,6 +150,14 @@ body {
     z-index: 2;
 }
 
+#Verticalprev {
+    top: 10px;
+}
+
+#Verticalnext {
+    bottom: 10px;
+}
+
 /* Hide the scrollbar but keep the functionality */
 #listings-section::-webkit-scrollbar {
     width: 8px;
@@ -329,28 +337,6 @@ body {
     background-color: #0056b3;
 }
 
-/* Submit Button Styling */
-#deleteBtn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #ff0000b8;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#deleteBtn:disabled {
-    background-color: #666;
-    cursor: not-allowed;
-}
-
-#deleteBtn:hover:enabled {
-    background-color: #ff2f00;
-}
-
 /* Map container styling */
 #map {
     height: 500px;
@@ -521,27 +507,10 @@ button[type="submit"] {
     /* Smooth transition effect */
 }
 
-/*delete button*/
-button[type="delete"] {
-    background-color: #cf0303;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 /* Button hover effect */
 button[type="submit"]:hover {
     background-color: #0056b3;
     /* Darker blue on hover */
-}
-
-button[type="delete"]:hover {
-    background-color: #ff3300;
 }
 
 /* Spacing between forms */

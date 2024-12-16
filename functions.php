@@ -2,13 +2,14 @@
 
 function getConnection() {
     try {
-        $connection = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $connection;
-    } catch (Exception $e) {
-        throw new Exception("Connection error " . $e->getMessage(), 0, $e);
+        $conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $conn;
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
     }
 }
+#$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
 
 function validate_login() {
     $input = array();
@@ -23,16 +24,17 @@ function validate_login() {
     if (empty($username) || empty($password)) {
         $errors[] = "Username and password are required.";
     } else {
-        $connection = getConnection();
-        $stmt = $connection->prepare("SELECT passwordHash FROM EGN_users WHERE username = :username");
+        $conn = getConnection();
+        $stmt = $conn->prepare("SELECT password FROM users WHERE username = :username");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result) {
-            if (password_verify($password, $result['passwordHash'])) {
+            if (password_verify($password, $result['password'])) {
                 set_session('authenticated', true);
                 set_session('username', $username);
+                echo "works";
             } else {
                 $errors[] = "Incorrect password.";
             }
@@ -41,10 +43,11 @@ function validate_login() {
         }
     }
 
-    $connection = null;
+    $conn = null;
 
     return array('input' => $input, 'errors' => $errors);
 }
+
 
 function show_errors($errors) {
     $errorMessage = implode("<br>", $errors);
