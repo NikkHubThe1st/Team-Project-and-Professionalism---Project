@@ -150,14 +150,6 @@ body {
     z-index: 2;
 }
 
-#Verticalprev {
-    top: 10px;
-}
-
-#Verticalnext {
-    bottom: 10px;
-}
-
 /* Hide the scrollbar but keep the functionality */
 #listings-section::-webkit-scrollbar {
     width: 8px;
@@ -337,6 +329,28 @@ body {
     background-color: #0056b3;
 }
 
+/* Submit Button Styling */
+#deleteBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff0000b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#deleteBtn:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+#deleteBtn:hover:enabled {
+    background-color: #ff2f00;
+}
+
 /* Map container styling */
 #map {
     height: 500px;
@@ -507,10 +521,27 @@ button[type="submit"] {
     /* Smooth transition effect */
 }
 
+/*delete button*/
+button[type="delete"] {
+    background-color: #cf0303;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 /* Button hover effect */
 button[type="submit"]:hover {
     background-color: #0056b3;
     /* Darker blue on hover */
+}
+
+button[type="delete"]:hover {
+    background-color: #ff3300;
 }
 
 /* Spacing between forms */
@@ -629,4 +660,57 @@ p#user-Description {
     font-size: 14px; /* Smaller text size for description */
     color: #555; /* Slightly dark color for the text */
     margin: 0; /* Remove any default margin */
+}
+/*new listings code*/
+#listings-container {
+    display: flex;
+    flex-direction: column; /* Stack listings vertically */
+    gap: 20px; /* Space between listings */
+    overflow: auto; /* Allow scrolling if necessary */
+    max-height: 100vh; /* Limit height for scrollable view */
+}
+/* css for the cart and checkout*/
+/* Layout */
+.checkout-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Form takes 2/3 of the space, cart takes 1/3 */
+    gap: 20px;
+    min-height: 100vh;  /* Ensures full viewport height */
+}
+
+.checkout-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-total {
+    font-weight: bold;
+    text-align: right;
+}
+@media screen and (max-width: 768px) {
+    .checkout-wrapper {
+        grid-template-columns: 1fr; /* Stack the form and cart on smaller screens */
+    }
 }
