@@ -1,46 +1,39 @@
+<?php
+// Start session and check if the user is logged in
+//sql table for the report page
+//CREATE TABLE reports (
+    //id INT AUTO_INCREMENT PRIMARY KEY,
+   // user_id INT NOT NULL, -- Foreign key linking to the users table
+   // category VARCHAR(50) NOT NULL,
+   // description TEXT NOT NULL,
+    //attachment_path VARCHAR(255) DEFAULT NULL,
+   // created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    //FOREIGN KEY (user_id) REFERENCES users(ID)
+//);
+session_start();
+require_once 'functions.php'; // Include helper functions like sessionCheck()
+
+sessionCheck(); // Redirect to login page if the user is not logged in
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Issue</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
-<body >
 
+<body>
     <!-- Navigation Menu -->
-    <div id="navbar">
-        <div id="menu-toggle" class="menu-icon">
-            &#9776; <!-- Hamburger Icon -->
-        </div>
-        <h1 class="dashboard-title">Dashboard</h1>
-        <nav id="side-nav" class="side-nav">
-            <ul>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="reportIssue.html">Report Issue</a></li>
-                <li><a href="TOS.html">TOS</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="login.html">Log In</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-        </nav>
-    </div>
+    <?php createNavbar(); ?>
 
     <!-- Report Issue Form -->
     <div class="container mt-5">
         <h1 class="mb-4 text-center">Report an Issue</h1>
-        <form class="p-4 bg-white rounded shadow" method="post" action="#.php" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-            </div>
+        <form class="p-4 bg-white rounded shadow" method="post" action="reportProcess.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="category">Category</label>
                 <select class="form-control" id="category" name="category" required>
@@ -65,4 +58,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

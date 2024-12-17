@@ -1,4 +1,11 @@
-<?php include("functions.php")?>
+<?php
+include("functions.php");
+session_start();
+sessionCheck(); //ensure user is logged in to access listings to php
+$user_id = $_SESSION["user_id"];
+$conn = getConnection();
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -11,26 +18,35 @@
 <body>
 <?php createNavbar();?>
 
-    <script src="script.js"></script>
+<?php
+        #Get User info
+            $users_sql = "
+                SELECT username, description
+                FROM users 
+                WHERE NOT users.ID = :user_id
+                ";
 
-    <!--The page header will include the search bar-->
-    <header class="header">
-        <h1>Search Users</h1>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search users by name, location, or role..." />
-            <button id="search-button">Search</button>
-        </div>
-    </header>
-
-    <main class="results">
-        <h2>Results</h2>
-        <div id="user-container">
-            <!-- Found User cards will be populated in the main using JS-->
-        </div>
-        <p id="no-results" style="display: none;">No users found. Try a different search.</p>
-    </main>
-
-    <script src="script.js"></script>
+            $users_stmt = $conn->prepare($users_sql);
+            $users_stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $users_stmt->execute();
+            $users = $users_stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+    
+            <p>s</p>
+            <?php if (empty($users)): ?>
+                <p>You're all alone: no users found!</p>
+            <?php else: ?>
+                <div id="listings-container" class="listings-container">
+                    <?php foreach ($users as $user): ?>
+                        <div class="listing">
+                            <h2><?php echo htmlspecialchars($user['username']); ?></h2>
+                            <img src="example-picture.jpg" alt="Profile Picture" class="profile-pic">
+                            <p><?php echo htmlspecialchars($user['description']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            </div>
+<script src="script.js"></script>
 </body>
-
 </html>

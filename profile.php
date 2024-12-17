@@ -73,7 +73,7 @@ $orders = $orders_stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<sectio?php
+<?php
 createNavbar();
 ?>
 
@@ -89,12 +89,6 @@ createNavbar();
             </form>
         </div>
     </header>
-
-    <section id="user-listings-section">
-    <h2 class="listings-heading">My Listings</h2>
-    <?php getListings()?>
-    </section>
-    <!--
     
     <h2 class="listings-heading">My Listings</h2>
     <a href="createlisting.php">
@@ -112,7 +106,7 @@ createNavbar();
                     <p><strong>Price:</strong> <?php echo htmlspecialchars($listing['price']); ?></p>
                     <p><strong>Weight:</strong> <?php echo htmlspecialchars($listing['weight']); ?></p>
                     <p><strong>Description:</strong> <?php echo htmlspecialchars($listing['description']); ?></p>
-                    <a href="map.html">
+                    <a href="map.php">
                         <button class="viewMap-button">View Map</button>
                     </a>
                 </div>
@@ -120,9 +114,9 @@ createNavbar();
         </div>
     <?php endif; ?>
     </section>
-            -->
+           
 
-    <div id="listings-section">
+    <div>
     <h2 class="listings-heading">My Orders</h2>
     <?php if (empty($orders)): ?>
         <p>No current orders</p>
@@ -136,8 +130,7 @@ createNavbar();
                     <p><strong>Price:</strong> <?php echo htmlspecialchars($order['price']); ?></p>
                     <p><strong>Weight:</strong> <?php echo htmlspecialchars($order['weight']); ?></p>
                     <p><strong>Description:</strong> <?php echo htmlspecialchars($order['description']); ?></p>
-                    <P><strong>Ordered On:</strong> <?php echo htmlspecialchars($order['orderedBy']); ?></P> 
-                    <a href="map.html">
+                    <a href="map.php">
                         <button class="viewMap-button">View Map</button>
                     </a>
                 </div>

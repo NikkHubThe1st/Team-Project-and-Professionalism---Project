@@ -2,7 +2,7 @@
 
 function getConnection() {
     try {
-       $conn = new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
+       $conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
 		#$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
@@ -96,7 +96,7 @@ function createNavbar() {
     /* use php_self to find the current name of the file and rename accordingly*/
     $currentPage = basename($_SERVER['PHP_SELF']);
     $pageTitles = [
-        "dashboard.php" => "Dashboard",
+        "index.php" => "Dashboard",
         "listings.php" => "Listings",
         "profileListings.html" => "User Search",
         "profile.php" => "Profile",
@@ -119,9 +119,9 @@ function createNavbar() {
         <h1 class="dashboard-title"><?php echo htmlspecialchars($pageTitle); ?></h1>
         <nav id="side-nav" class="side-nav">
             <ul>
-                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="index.php">Dashboard</a></li>
                 <li><a href="listings.php">Listings</a></li>
-                <li><a href="profileListings.html">User Search</a></li>
+                <li><a href="profileListings.php">User Search</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="#">Rewards</a></li>
                 <li><a href="reportIssue.php">Report Issue</a></li>

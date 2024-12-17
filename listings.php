@@ -1,6 +1,10 @@
 <?php
 include("functions.php");
-check_login(); //ensure user is logged in to access listings to php
+session_start();
+sessionCheck(); //ensure user is logged in to access listings to php
+$user_id = $_SESSION["user_id"];
+$conn = getConnection();
+
 ?>
 
 <!DOCTYPE html>
@@ -13,17 +17,64 @@ check_login(); //ensure user is logged in to access listings to php
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+    <body>
 
-    <?php 
-    createNavbar();
-    ?>
+        <?php 
+        createNavbar();
+        ?>
 
-<div id="listings-section">> 
-<input type="text" id="search-bar" placeholder="Search listings...">
-<?php getListings()?>
-</div>
-</body>
+        <div>
+        <input type="text" id="search-bar" placeholder="Search listings...">
+
+        <?php
+        #Populate listings variable with listings
+            $listings_sql = "
+                SELECT listings.*, users.username 
+                FROM listings 
+                INNER JOIN users ON listings.userID = users.ID 
+                WHERE NOT users.ID = :user_id
+                ";
+
+            $listings_stmt = $conn->prepare($listings_sql);
+            $listings_stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $listings_stmt->execute();
+            $listings = $listings_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        ?>
+    
+            <p>s</p>
+            <a href="createlisting.php">
+                <button type="submit" class="btn btn-block btn-primary">Create Listing</button>
+            </a>
+            <?php if (empty($listings)): ?>
+                <p>No current listings</p>
+            <?php else: ?>
+                <div id="listings-container" class="listings-container">
+                    <?php foreach ($listings as $listing): ?>
+                        <div class="listing">
+                            <h2><?php echo htmlspecialchars($listing['title']); ?></h2>
+                            <img src="CompostBin.jpg" alt="Compost Bin" style="width:150px;height:auto;">
+                            <p><strong>User:</strong> <?php echo htmlspecialchars($listing['username']); ?></p>
+                            <p><strong>Price:</strong> <?php echo htmlspecialchars($listing['price']); ?></p>
+                            <p><strong>Weight:</strong> <?php echo htmlspecialchars($listing['weight']); ?></p>
+                            <p><strong>Description:</strong> <?php echo htmlspecialchars($listing['description']); ?></p>
+                            <a href="map.php">
+                                <button class="viewMap-button">View Map</button>
+                            </a>
+                            <form action="checkout.php" method="GET">
+                                <input type="hidden" name="listing_id" value="<?php echo $listing['ID']; ?>">
+                                <button type="submit">Checkout</button>
+                            </form>
+                            
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
 
 
 

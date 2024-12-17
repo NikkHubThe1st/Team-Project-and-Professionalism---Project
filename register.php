@@ -11,30 +11,12 @@
 
 <body>
 
-</nav>
-  <div id="navbar">
-        <div id="menu-toggle" class="menu-icon">
-            &#9776; <!-- Hamburger Icon -->
-        </div>
-        <h1 class="dashboard-title">Register</h1>
-        <nav id="side-nav" class="side-nav">
-            <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="profileListings.html">User Search</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="reportIssue.html">Report Issue</a></li>
-                <li><a href="TOS.html">TOS</a></li>
-                <li><a href="login.html">Log In</a></li>
-				        <li><a href="map.html">Map</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-        </nav>
-    </div>
+    <?php 
+    include("functions.php");
+    createNavbar(); //Using php function to make nav bar
+    ?>
 
     <?php
-    include("functions.php");
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'] ?? '';
