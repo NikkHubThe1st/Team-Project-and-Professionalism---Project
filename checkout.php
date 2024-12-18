@@ -4,10 +4,10 @@ session_start();
 sessionCheck(); // Ensure the user is logged in
 $conn = getConnection();
 
-// Fetch the listing ID from the GET request
+
 if (isset($_GET['listing_id'])) {
     $listing_id = $_GET['listing_id'];
-    $user_id = $_SESSION["user_id"]; // Get the current user ID from session
+    $user_id = $_SESSION["user_id"];
 
     // Reserve the listing by updating the 'orderedBy' column
     $update_sql = "UPDATE listings SET orderedBy = :user_id WHERE ID = :listing_id AND orderedBy IS NULL";
@@ -22,7 +22,7 @@ if (isset($_GET['listing_id'])) {
         $_SESSION['cart'] = [$listing_id];
     } else {
         // Handle the case where the listing was already reserved (perhaps redirect with an error message)
-        header("Location: index.php?error=Listing already reserved");
+        header("Location: listings.php?error=Listing already reserved");
         exit();
     }
 
@@ -33,8 +33,7 @@ if (isset($_GET['listing_id'])) {
     $stmt->execute();
     $listing = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
-    // Redirect to the home page if no listing ID is passed
-    header("Location: index.php");
+    header("Location: listings.php");
     exit();
 }
 
@@ -70,54 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             display: flex;
             justify-content: center;
             padding: 20px;
-        }
-        .checkout-container {
-            display: flex;
-            max-width: 1200px;
-            width: 100%;
-        }
-        .checkout-form {
-            flex: 2;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 20px;
-        }
-        .basket {
-            flex: 1;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .basket h3 {
-            margin-top: 0;
-        }
-        .basket-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .basket-total {
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .checkout-form input, .checkout-form button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .checkout-form button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .checkout-form button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>

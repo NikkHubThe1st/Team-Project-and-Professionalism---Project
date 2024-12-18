@@ -63,7 +63,7 @@ $conn = getConnection();
                             </a>
                             <form action="checkout.php" method="GET">
                                 <input type="hidden" name="listing_id" value="<?php echo $listing['ID']; ?>">
-                                <button type="submit">Checkout</button>
+                                <button class="viewMap-button">Buy Now</button>
                             </form>
                             
                         </div>

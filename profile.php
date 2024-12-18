@@ -62,6 +62,11 @@ $orders_stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $orders_stmt->execute();
 
 $orders = $orders_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
+    echo "logout button working";
+    logout();
+}
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +91,9 @@ createNavbar();
                 <textarea id="description" name="description" rows="4" cols="50"><?php echo htmlspecialchars($description); ?></textarea>
                 <br>
                 <button type="submit" class="btn btn-primary">Update Description</button>
+            </form>
+            <form method="POST">
+                <button type="submit" name="logout" class="logout-button">Logout</button>
             </form>
         </div>
     </header>
