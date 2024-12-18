@@ -121,8 +121,8 @@ if ($listing) {
                     <span>Total</span>
                     <span>$<?php echo number_format($totalPrice, 2); ?></span>
                 </div>
-                <div>
-                    <form action="checkout.php" method="POST">
+                <div class="cancel-order-container">
+                    <form action="checkout.php" method="POST" class="logout-form">
                         <button type="submit" name="cancel_order">Cancel Order</button>
                     </form>
                 </div>
