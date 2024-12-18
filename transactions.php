@@ -1,4 +1,4 @@
-    <?php
+   <?php
     include("functions.php");
     session_start();
     sessionCheck();
