@@ -60,6 +60,14 @@ function validate_login() {
     return array('input' => $input, 'errors' => $errors);
 }
 
+function logout() {
+    session_start();
+    session_unset();
+    session_destroy();
+
+    header("Location: login.php"); //redirects user after removing their session - Nick
+    exit();
+}
 
 function show_errors($errors) {
     $errorMessage = implode("<br>", $errors);
@@ -103,6 +111,7 @@ function createNavbar() {
         "reportIssue.php" => "Report an Issue",
         "TOS.php" => "Terms of Service",
         "login.php" => "Log In",
+        "logout.php" => "Log Out", 
         "map.php" => "Map",
         "checkout.php" => "Checkout"
     ];
@@ -126,7 +135,7 @@ function createNavbar() {
                 <li><a href="#">Rewards</a></li>
                 <li><a href="reportIssue.php">Report Issue</a></li>
                 <li><a href="TOS.php">TOS</a></li>
-                <li><a href="login.php">Log In</a></li>
+                <li><a href="<?php echo check_login() ? 'logout.php' : 'login.php'; ?>"><?php echo check_login() ? "Log Out" : "Log In"; ?></a></li> <!--Using check_login() to check if user is logged in-->
                 <li><a href="map.php">Map</a></li>
                 <li><a href="checkout.php">Checkout</a></li>
             </ul>
