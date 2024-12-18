@@ -15,7 +15,7 @@ function getConnection() {
 /*check user session by user_id*/
 function sessionCheck(){
     if (!isset($_SESSION["user_id"])) {
-        header("Location: login.html");
+        header("Location: login.php");
         exit();
     }   
 }
@@ -106,7 +106,7 @@ function createNavbar() {
     $pageTitles = [
         "index.php" => "Dashboard",
         "listings.php" => "Listings",
-        "profileListings.html" => "User Search",
+        "profileListings.php" => "User Search",
         "profile.php" => "Profile",
         "reportIssue.php" => "Report an Issue",
         "TOS.php" => "Terms of Service",
@@ -162,7 +162,7 @@ function getListings(){
                     <p><strong>Price:</strong> <?php echo htmlspecialchars($listing['price']); ?></p>
                     <p><strong>Weight:</strong> <?php echo htmlspecialchars($listing['weight']); ?></p>
                     <p><strong>Description:</strong> <?php echo htmlspecialchars($listing['description']); ?></p>
-                    <a href="map.html">
+                    <a href="map.php">
                         <button class="viewMap-button">View Map</button>
                     </a>
                 </div>
