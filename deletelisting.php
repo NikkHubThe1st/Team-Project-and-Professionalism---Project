@@ -8,8 +8,8 @@ $conn = getConnection();
 
 $error = "";
 
-if (isset($_GET['id'])) {
-    $ID = intval($_GET['id']); // Get the listing ID from the URL
+if (isset($_GET['ID'])) {
+    $ID = intval(value: $_GET['ID']); // Get the listing ID from the URL
 
     try {
         // Check if the user is an admin

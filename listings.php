@@ -5,6 +5,22 @@ sessionCheck(); //ensure user is logged in to access listings to php
 $user_id = $_SESSION["user_id"];
 $conn = getConnection();
 
+try {
+    // Fetch the admin status of the logged-in user
+    $stmt = $conn->prepare("SELECT admin FROM users WHERE ID = :user_id");
+    $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$user) {
+        header("Location: login.php"); // Redirect if user not found
+        exit();
+    }
+
+    $is_admin = $user['admin'] == 1; // Check if the user is an admin
+} catch (PDOException $e) {
+    die("Error fetching data: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +82,11 @@ $conn = getConnection();
                                 <input type="hidden" name="listing_id" value="<?php echo $listing['ID']; ?>">
                                 <button class="viewMap-button">Buy Now</button>
                             </form>
-                            <a href="delete_listing.php?id=<?php echo htmlspecialchars($listing['ID'])?>" class="btn btn-danger">Delete</a>
+
+
+                            <?php if ($is_admin): ?>
+                            <a href="deletelisting.php?id=<?php echo $listing['ID']; ?>" class="btn btn-danger">Delete</a>
+                            <?php endif; ?>
 
                             
                         </div>
