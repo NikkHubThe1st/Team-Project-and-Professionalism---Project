@@ -88,7 +88,7 @@ createNavbar();
             <h1 id="username"><?php echo htmlspecialchars($username); ?></h1>
             <form method="POST" action="profile.php">
                 <label for="description">Edit your description:</label>
-                <textarea id="description" name="description" rows="4" cols="50"><?php echo htmlspecialchars($description); ?></textarea>
+                <textarea class="form-control" id="description" name="description" rows="5" cols="50"><?php echo htmlspecialchars($description); ?></textarea>
                 <br>
                 <button type="submit" class="btn btn-primary">Update Description</button>
             </form>
@@ -98,6 +98,13 @@ createNavbar();
         </div>
     </header>
     
+            <!-- 
+                <div class="form-group">
+                <label for="description">Issue Description</label>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Describe your issue in detail" required></textarea>
+                </div>
+            -->
+
     <h2 class="listings-heading">My Listings</h2>
     <a href="createlisting.php">
     <button type="submit" class="btn btn-block btn-primary">Create Listing</button>
@@ -122,7 +129,6 @@ createNavbar();
         </div>
     <?php endif; ?>
     </section>
-           
 
     <div>
     <h2 class="listings-heading">My Orders</h2>
