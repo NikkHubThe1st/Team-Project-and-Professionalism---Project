@@ -113,7 +113,7 @@ function createNavbar() {
         "login.php" => "Log In",
         "logout.php" => "Log Out", 
         "map.php" => "Map",
-        "checkout.php" => "Checkout"
+        "checkoutNick.php" => "Checkout"
     ];
 
     /* Default to "Dashboard" if the page not found */
