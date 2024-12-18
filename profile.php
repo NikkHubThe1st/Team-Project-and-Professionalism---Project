@@ -98,17 +98,13 @@ createNavbar();
         </div>
     </header>
     
-            <!-- 
-                <div class="form-group">
-                <label for="description">Issue Description</label>
-                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Describe your issue in detail" required></textarea>
-                </div>
-            -->
 
     <h2 class="listings-heading">My Listings</h2>
-    <a href="createlisting.php">
-    <button type="submit" class="btn btn-block btn-primary">Create Listing</button>
-            </a>
+    <div>
+        <a href="createlisting.php">
+            <button type="submit" class="btn btn-primary"style="width: auto;">Create Listing</button>
+        </a>
+    </div>
     <?php if (empty($listings)): ?>
         <p>No current listings</p>
     <?php else: ?>
