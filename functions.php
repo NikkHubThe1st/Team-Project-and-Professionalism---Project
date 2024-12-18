@@ -13,11 +13,18 @@ function getConnection() {
 #"mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003"
 #"mysql:host=localhost; dbname=kv6013db", "root", ""
 /*check user session by user_id*/
-function sessionCheck(){
+function sessionCheck() {
     if (!isset($_SESSION["user_id"])) {
-        header("Location: login.php");
+        ?>
+        <script>
+            alert("Please login");
+            setTimeout(function() {
+                window.location.href = 'login.php';
+            }, 50);
+        </script>
+        <?php
         exit();
-    }   
+    }
 }
 
 
@@ -171,4 +178,5 @@ function getListings(){
     <?php endif; ?>
     </section>
     <?php
-            }
+}
+?>
