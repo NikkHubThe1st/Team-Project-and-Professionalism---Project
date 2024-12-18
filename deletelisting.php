@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$user || $user['admin'] != 1) {
-            header("Location: dashboard.php"); // Redirect if not an admin
+            header("Location: index.php"); // Redirect if not an admin
             exit();
         }
 
