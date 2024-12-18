@@ -33,6 +33,7 @@ $conn = getConnection();
                 FROM listings 
                 INNER JOIN users ON listings.userID = users.ID 
                 WHERE NOT users.ID = :user_id
+				AND listings.orderedBy IS NULL;
                 ";
 
             $listings_stmt = $conn->prepare($listings_sql);

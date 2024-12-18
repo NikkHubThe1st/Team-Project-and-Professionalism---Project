@@ -144,11 +144,7 @@
                 <p></p>
                 <li>Provide key details like compost type, weight and price.</li>
                 <p></p>
-                <li>Upload a photo (optional) of the compost to help buyers make an informed decision.</li>
-                <p></p>
-                <li>Indicate whether buyers can pick up the compost, or specify delivery avaliability and times.</li>
-                <p></p>
-                <li>Be sure to review the details and then select "Post" to make your compost avaliable to buyers on the platform.</li>
+                <li>Be sure to review the details and then select "Create a listing" to make your compost avaliable to buyers on the platform.</li>
                 <p></p>
             </ul>
             <p>And thats it! You have successfully posted your first listing, and remember every handful of compost makes a difference!</p>

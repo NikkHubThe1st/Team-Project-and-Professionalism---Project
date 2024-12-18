@@ -2,15 +2,16 @@
 
 function getConnection() {
     try {
-       $conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
-		#$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
+       #$conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
+
+		$conn= new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
 }
-#"mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003"
+#$conn= new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
 #"mysql:host=localhost; dbname=kv6013db", "root", ""
 /*check user session by user_id*/
 function sessionCheck() {
@@ -29,7 +30,7 @@ function sessionCheck() {
 
 
 #$conn = new PDO("mysql:host=nuwebspace_db; dbname=w21009785", "w21009785", "Incorrect@123");
-# link to website -> https://w21011937.nuwebspace.co.uk/Database/login.php
+# link to website -> https://w21011937.nuwebspace.co.uk/Database/listings.html
 function validate_login() {
     $input = array();
     $errors = array();
@@ -120,7 +121,7 @@ function createNavbar() {
         "login.php" => "Log In",
         "logout.php" => "Log Out", 
         "map.php" => "Map",
-        "checkout.php" => "Checkout"
+        "checkoutNick.php" => "Checkout"
     ];
 
     /* Default to "Dashboard" if the page not found */
@@ -144,7 +145,7 @@ function createNavbar() {
                 <li><a href="TOS.php">TOS</a></li>
                 <li><a href="<?php echo check_login() ? 'logout.php' : 'login.php'; ?>"><?php echo check_login() ? "Log Out" : "Log In"; ?></a></li> <!--Using check_login() to check if user is logged in-->
                 <li><a href="map.php">Map</a></li>
-                <li><a href="checkout.php">Checkout</a></li>
+                <li><a href="checkoutNick.php">Checkout</a></li>
             </ul>
         </nav>
     </div>
@@ -178,5 +179,39 @@ function getListings(){
     <?php endif; ?>
     </section>
     <?php
+            }
+
+function addToCart($listingId){ //This function adds items to the cart array for the particular session
+
+     // create a cart if one doesn't exist
+     if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+
+    // Add the bin to the cart if it isn't already there. Quantity of 1 is added, as only one of each listing can be bought at a time.
+    if (!array_key_exists($listingId, $_SESSION['cart'])) {
+        $_SESSION['cart'][$listingId] = 1;
+    }
+
+    return true;
 }
-?>
+
+function removeFromCart($listingId) { // This function can be called to remove items from a cart session
+    // Ensure the cart is initialized
+    if (!isset($_SESSION['cart'])) {
+        return false;
+    }
+
+    // Find the item in the cart
+    $cartIndex = array_search($listingId, $_SESSION['cart']);
+
+    if ($cartIndex !== false) {
+        // Search cart for item then remove
+        unset($_SESSION['cart'][$cartIndex]);
+        $_SESSION['cart'] = array_values($_SESSION['cart']);
+        return true;
+    }
+
+    // Item not found in the cart
+    return false;
+}
