@@ -1,17 +1,11 @@
 <?php
 session_start();
-require_once 'functions.php';
-
-// Check if the user is logged in
+include 'functions.php';
 sessionCheck();
-
-// Database connection
 $conn = getConnection();
 
-// Get logged-in user ID
 $user_id = $_SESSION['user_id'];
 
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = $_POST['category'];
     $description = $_POST['description'];
@@ -27,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Insert report into the database
     $sql = "INSERT INTO reports (user_id, category, description, attachment_path) VALUES (:user_id, :category, :description, :attachment_path)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -37,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         echo "Report submitted successfully.";
-        header("Location: dashboard.php");
+        header("Location: reportIssue.php");
         exit();
     } else {
         echo "Failed to submit the report. Please try again.";

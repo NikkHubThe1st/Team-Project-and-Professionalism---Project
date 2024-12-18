@@ -1,19 +1,22 @@
-<?php
-// Start session and check if the user is logged in
-//sql table for the report page
-//CREATE TABLE reports (
-    //id INT AUTO_INCREMENT PRIMARY KEY,
-   // user_id INT NOT NULL, -- Foreign key linking to the users table
-   // category VARCHAR(50) NOT NULL,
-   // description TEXT NOT NULL,
-    //attachment_path VARCHAR(255) DEFAULT NULL,
-   // created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    //FOREIGN KEY (user_id) REFERENCES users(ID)
-//);
-session_start();
-require_once 'functions.php'; // Include helper functions like sessionCheck()
+<!-- SQL to add to database
+CREATE TABLE reports (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL, -- Foreign key linking to the users table
+    category VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL,
+    attachment_path VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(ID)
+);
+-->
 
-sessionCheck(); // Redirect to login page if the user is not logged in
+<?php
+include("functions.php");
+session_start();
+sessionCheck();
+$conn = getConnection();
+
+
 ?>
 
 <!DOCTYPE html>
