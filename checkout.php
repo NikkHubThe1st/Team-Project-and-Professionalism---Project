@@ -4,6 +4,36 @@ session_start();
 sessionCheck(); // Ensure the user is logged in
 $conn = getConnection();
 
+// Handle the checkout process (submitted form)
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["cancel_order"])) {
+        if (isset($_SESSION['cart'])) {
+            $listing_id = $_SESSION['cart'][0];  // Assuming only one listing in the cart
+
+            // Update the 'orderedBy' column to NULL
+            $update_sql = "UPDATE listings SET orderedBy = NULL WHERE ID = :listing_id";
+            $update_stmt = $conn->prepare($update_sql);
+            $update_stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
+            $update_stmt->execute();
+
+            // Clear the cart and redirect to the listings page
+            unset($_SESSION['cart']);
+        }
+        header("Location: listings.php"); // Redirect to listings page
+        exit();
+    } elseif (isset($_POST["place_order"])) {
+    // Handle the order submission (process the checkout)
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $email = $_POST['email'];
+
+    // Process the payment or finalize the order here
+    // After successful checkout, you can clear the cart
+    unset($_SESSION['cart']);
+       header("Location: profile.php"); // Redirect to profile or confirmation page
+    exit();
+    }
+}
 
 if (isset($_GET['listing_id'])) {
     $listing_id = $_GET['listing_id'];
@@ -33,7 +63,7 @@ if (isset($_GET['listing_id'])) {
     $stmt->execute();
     $listing = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
-    header("Location: listings.php");
+    header("Location: index.php");
     exit();
 }
 
@@ -42,18 +72,6 @@ if ($listing) {
     $totalPrice += $listing['price'];
 }
 
-// Handle the checkout process (submitted form)
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $email = $_POST['email'];
-
-    // Process the payment or finalize the order here
-    // After successful checkout, you can clear the cart
-    unset($_SESSION['cart']);
-    header("Location: confirmation.php"); // Redirect to confirmation page
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
 
-                <button type="submit">Place Order</button>
+                <button type="submit" name="place_order">Place Order</button>
             </form>
         </div>
 
@@ -102,6 +120,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="basket-total">
                     <span>Total</span>
                     <span>$<?php echo number_format($totalPrice, 2); ?></span>
+                </div>
+                <div>
+                    <form action="checkout.php" method="POST">
+                        <button type="submit" name="cancel_order">Cancel Order</button>
+                    </form>
                 </div>
             <?php else: ?>
                 <p>No items in your basket</p>
