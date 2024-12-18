@@ -85,7 +85,7 @@ try {
 
 
                             <?php if ($is_admin): ?>
-                            <a href="deletelisting.php?id=<?php echo $listing['ID']; ?>" class="btn btn-danger">Delete</a>
+                            <a href="deletelisting.php?ID=<?php echo $listing['ID']; ?>" class="btn btn-danger">Delete</a>
                             <?php endif; ?>
 
                             
