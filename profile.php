@@ -86,14 +86,14 @@ createNavbar();
         <div class="user-info">
             <img src="example-picture.jpg" alt="Profile Picture" class="profile-pic">
             <h1 id="username"><?php echo htmlspecialchars($username); ?></h1>
+            <form method="POST" class="logout-form">
+                <button type="submit" name="logout" class="logout-button">Logout</button>
+            </form>
             <form method="POST" action="profile.php">
                 <label for="description">Edit your description:</label>
                 <textarea class="form-control" id="description" name="description" rows="5" cols="50"><?php echo htmlspecialchars($description); ?></textarea>
                 <br>
                 <button type="submit" class="btn btn-primary">Update Description</button>
-            </form>
-            <form method="POST">
-                <button type="submit" name="logout" class="logout-button">Logout</button>
             </form>
         </div>
     </header>
