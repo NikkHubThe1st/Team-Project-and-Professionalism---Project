@@ -65,6 +65,8 @@ $conn = getConnection();
                                 <input type="hidden" name="listing_id" value="<?php echo $listing['ID']; ?>">
                                 <button class="viewMap-button">Buy Now</button>
                             </form>
+                            <a href="delete_listing.php?id=<?php echo htmlspecialchars($listing['ID'])?>" class="btn btn-danger">Delete</a>
+
                             
                         </div>
                     <?php endforeach; ?>
