@@ -270,8 +270,8 @@ body {
 }
 
 .cancel-order-container {
-    margin-top: auto; /* Push the cancel order button to the bottom */
-    text-align: center; /* Center the button */
+    margin-top: auto; 
+    text-align: center; 
 }
 
 .checkout-form input, .checkout-form button {
@@ -503,6 +503,10 @@ button[type="submit"] {
     /* Pointer cursor on hover */
     transition: background-color 0.3s ease;
     /* Smooth transition effect */
+}
+
+button{
+    margin:5px;
 }
 
 /* Button hover effect */
