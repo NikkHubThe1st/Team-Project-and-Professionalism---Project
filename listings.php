@@ -89,7 +89,7 @@ try {
 
                             <?php if ($is_admin): ?>
                             <a href="deletelisting.php?ID=<?php echo $listing['ID'];?>"> 
-                            <button class="btn btn-danger"> Deletebutton </button>
+                            <button type = "submit" class="btn btn-primary"style = "width: auto;"> Delete Button </button>
                             </a>
                             <?php endif; ?>
 
