@@ -65,6 +65,12 @@ $conn = getConnection();
                                 <input type="hidden" name="listing_id" value="<?php echo $listing['ID']; ?>">
                                 <button type="submit">Checkout</button>
                             </form>
+
+                            <!--Nick's version of cart functionality, using addToCart() function, commented out until tested -->
+                            <form action="addToCart.php" method="post">
+                            <input type="hidden" name="listing_id" value="<?php echo htmlspecialchars($listing['ID']); ?>">
+                            <button type="submit">Add to Cart (Nick)</button>
+                            </form>
                             
                         </div>
                     <?php endforeach; ?>
