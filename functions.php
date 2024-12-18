@@ -2,9 +2,8 @@
 
 function getConnection() {
     try {
-       #$conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
-
-		$conn= new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
+        $conn = new PDO("mysql:host=localhost; dbname=kv6013db", "root", "");
+        #$conn= new PDO("mysql:host=numyspace_db; dbname=w21011937", "w21011937", "/Poppy2003");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
     } catch (PDOException $e) {
@@ -145,7 +144,7 @@ function createNavbar() {
                 <li><a href="TOS.php">TOS</a></li>
                 <li><a href="<?php echo check_login() ? 'logout.php' : 'login.php'; ?>"><?php echo check_login() ? "Log Out" : "Log In"; ?></a></li> <!--Using check_login() to check if user is logged in-->
                 <li><a href="map.php">Map</a></li>
-                <li><a href="checkoutNick.php">Checkout</a></li>
+                <li><a href="checkout.php">Checkout</a></li>
             </ul>
         </nav>
     </div>
@@ -179,5 +178,5 @@ function getListings(){
     <?php endif; ?>
     </section>
     <?php
-            }
+}
 ?>
