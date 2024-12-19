@@ -3,7 +3,7 @@ const listingsContainer = document.getElementById('listings-container');
 const searchInput = document.getElementById('search-bar');
 const listings = Array.from(listingsContainer.children);
 
-// Add event listeners to search bar for filtering listings
+// Add listeners to search bar for filtering listings
 searchInput.addEventListener('input', () => {
     const searchQuery = searchInput.value.toLowerCase();
 

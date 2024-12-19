@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Handle file upload
     if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = 'uploads/'; // Ensure this directory exists and is writable
+        $upload_dir = 'uploads/'; // Ensure directory exists and is writable
         $attachment_path = $upload_dir . basename($_FILES['attachment']['name']);
         
         if (!move_uploaded_file($_FILES['attachment']['tmp_name'], $attachment_path)) {

@@ -1,72 +1,72 @@
 <?php
+//start the session and check connection to server
 include("functions.php");
 session_start();
-sessionCheck(); // Ensure the user is logged in
+sessionCheck(); 
 $conn = getConnection();
 
-// Handle the checkout process (submitted form)
+// Check if the user clicked a button to either cancel or place their order
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["cancel_order"])) {
         if (isset($_SESSION['cart'])) {
-            $listing_id = $_SESSION['cart'][0];  // Assuming only one listing in the cart
+            $listing_id = $_SESSION['cart'][0];  
 
-            // Update the 'orderedBy' column to NULL
+            // if the order is cancelled Update the 'orderedBy' column to NULL
             $update_sql = "UPDATE listings SET orderedBy = NULL WHERE ID = :listing_id";
             $update_stmt = $conn->prepare($update_sql);
             $update_stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
             $update_stmt->execute();
 
-            // Clear the cart and redirect to the listings page
+            // Clear the cart 
             unset($_SESSION['cart']);
         }
-        header("Location: listings.php"); // Redirect to listings page
-        exit();
+		//take user back to listings page
+        header("Location: listings.php"); 
     } elseif (isset($_POST["place_order"])) {
-    // Handle the order submission (process the checkout)
+    // if user confirms order get all personal details
     $name = $_POST['name'];
     $address = $_POST['address'];
     $email = $_POST['email'];
 
-    // Process the payment or finalize the order here
-    // After successful checkout, you can clear the cart
+   //clear the cart after 'payment'
     unset($_SESSION['cart']);
-       header("Location: profile.php"); // Redirect to profile or confirmation page
+       header("Location: profile.php"); 
     exit();
     }
 }
-
+//check if someone is trying to reserve compost
 if (isset($_GET['listing_id'])) {
     $listing_id = $_GET['listing_id'];
     $user_id = $_SESSION["user_id"];
 
-    // Reserve the listing by updating the 'orderedBy' column
+    // Reserve item if someone else hasnt already reserved it
     $update_sql = "UPDATE listings SET orderedBy = :user_id WHERE ID = :listing_id AND orderedBy IS NULL";
     $update_stmt = $conn->prepare($update_sql);
     $update_stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
     $update_stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
     $update_stmt->execute();
 
-    // Check if the update was successful (i.e., the listing was not already reserved)
+    // Check if the update was successful 
     if ($update_stmt->rowCount() > 0) {
-        // Store the listing ID in the session for the cart
         $_SESSION['cart'] = [$listing_id];
     } else {
-        // Handle the case where the listing was already reserved (perhaps redirect with an error message)
+        //if compost is reserved throw an error and redirect
         header("Location: listings.php?error=Listing already reserved");
         exit();
     }
 
-    // Fetch the listing details for display on the checkout page
+    //get details of reserved items
     $sql = "SELECT * FROM listings WHERE ID = :listing_id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
     $stmt->execute();
     $listing = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
+	//redirect to homepage if no items selected
     header("Location: index.php");
     exit();
 }
-
+//calculate cart total
 $totalPrice = 0;
 if ($listing) {
     $totalPrice += $listing['price'];

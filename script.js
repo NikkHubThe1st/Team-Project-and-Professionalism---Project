@@ -21,21 +21,21 @@ const articles = Array.from(articlesContainer.children);
 const totalArticles = articles.length;
 
 // Initialize pointers
-let frontPointer = 0; // Index of the first visible article
-let isAnimating = false; // To prevent overlapping transitions
+let frontPointer = 0; 
+let isAnimating = false;
 
-// Function to update container transform with transition
+// update container transform with transition
 const updateTransform = (direction) => {
-    if (isAnimating) return; // Prevent overlapping animations
+    if (isAnimating) return;
     isAnimating = true;
 
     // Apply transform based on direction
     if (direction === 'next') {
         articlesContainer.style.transition = 'transform 0.5s ease';
-        articlesContainer.style.transform = `translateX(-${articles[0].offsetWidth + 20}px)`; // Include gap
+        articlesContainer.style.transform = `translateX(-${articles[0].offsetWidth + 20}px)`; 
     } else if (direction === 'prev') {
         articlesContainer.style.transition = 'none';
-        articlesContainer.style.transform = `translateX(-${articles[0].offsetWidth + 20}px)`; // Include gap
+        articlesContainer.style.transform = `translateX(-${articles[0].offsetWidth + 20}px)`; 
         const lastArticle = articlesContainer.lastElementChild;
         articlesContainer.prepend(lastArticle);
         setTimeout(() => {
@@ -53,7 +53,7 @@ const updateTransform = (direction) => {
             articlesContainer.style.transform = 'translateX(0px)';
         }
         isAnimating = false;
-    }, 500); // Match transition duration
+    }, 500); 
 };
 
 // Function to increment pointer
@@ -62,10 +62,10 @@ const incrementPointer = () => {
     updateTransform('next');
 };
 
-// Scroll right (Next button click)
+// Scroll right 
 nextButton.addEventListener('click', incrementPointer);
 
-// Scroll left (Previous button click)
+// Scroll left 
 prevButton.addEventListener('click', () => {
     frontPointer = (frontPointer - 1 + totalArticles) % totalArticles;
     updateTransform('prev');
@@ -76,27 +76,27 @@ setInterval(() => {
     incrementPointer();
 }, 5000);
 
-// Get the listings container
+
 const listingsContainer = document.getElementById('listings-container');
 const verticalPrevButton = document.getElementById('Verticalprev');
 const verticalNextButton = document.getElementById('Verticalnext');
 
-// Add event listeners for the vertical scroll buttons
+//  vertical scroll buttons
 verticalPrevButton.addEventListener('click', () => {
     listingsContainer.scrollBy({
-        top: -100, // Scroll up by 100px
+        top: -100, 
         behavior: 'smooth'
     });
 });
 
 verticalNextButton.addEventListener('click', () => {
     listingsContainer.scrollBy({
-        top: 100, // Scroll down by 100px
+        top: 100, 
         behavior: 'smooth'
     });
 });
 
-// Fix scroll wheel behavior
+// scroll wheel behavior
 listingsContainer.addEventListener('wheel', (event) => {
     // Prevent default scroll behavior
     event.preventDefault();
@@ -104,12 +104,12 @@ listingsContainer.addEventListener('wheel', (event) => {
     // Scroll up or down based on wheel direction
     if (event.deltaY > 0) {
         listingsContainer.scrollBy({
-            top: 100, // Scroll down by 100px
+            top: 100, 
             behavior: 'smooth'
         });
     } else {
         listingsContainer.scrollBy({
-            top: -100, // Scroll up by 100px
+            top: -100, 
             behavior: 'smooth'
         });
     }

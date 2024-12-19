@@ -16,16 +16,14 @@ body {
     left: 0;
     width: 100%;
     height: 50px;
-    /* Height of the top navigation bar */
     background-color: #000;
-    /* Black background */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     z-index: 1000;
 }
 
-/* Hamburger Icon */
+/* NavBar Icon(hamburger) */
 #menu-toggle {
     position: absolute;
     font-size: 30px;
@@ -44,12 +42,9 @@ body {
     width: 250px;
     height: 100%;
     background-color: #000;
-    /* Black background for side menu */
     color: #e0e0e0;
-    /* Light text */
     transition: left 0.3s ease;
     padding-top: 50px;
-    /* Offset for top bar */
 
 }
 
@@ -59,11 +54,11 @@ body {
     margin: 0;
 }
 
+/*divide each link*/
 .side-nav ul li {
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #333;
-    /* Subtle divider for each link */
 }
 
 .side-nav ul li a {
@@ -72,10 +67,10 @@ body {
     font-size: 18px;
 
 }
-
+	/* Darker gray on hover */
 .side-nav ul li a:hover {
     background-color: #333;
-    /* Darker gray on hover */
+    
 }
 
 /* Articles Section */
@@ -85,17 +80,15 @@ body {
     justify-content: center;
     position: relative;
     padding-top: 80px;
-    /* Space for the header */
     overflow: hidden;
-    /* Ensure no articles overflow the container */
+ 
 }
 
 .articles-container {
     display: flex;
     gap: 20px;
-    /* Adjust gap to control the space between articles */
     transition: transform 0.3s ease;
-    /* Smooth transition for scroll */
+   
 }
 
 .article {
@@ -108,7 +101,7 @@ body {
 
 #articles-section {
     overflow: hidden;
-    /* Hide overflowing articles */
+    
 }
 /* Position arrows outside the articles container */
 #prev {
@@ -132,15 +125,10 @@ body {
     align-items: center;
     position: relative;
     padding-top: 100px;
-    /* Space for the header */
     height: 800px;
-    /* Fixed height for scrolling */
     overflow-y: scroll;
-    /* Enable vertical scroll */
     scrollbar-width: thin;
-    /* Thinner scrollbar */
     -ms-overflow-style: none;
-    /* Hide scrollbar for IE and Edge */
 }
 
 .listing {
@@ -176,10 +164,9 @@ body {
     margin-left: 20px;
     padding: 15px;
     flex-grow: 1;
-    /* Push title to the center if side menu expands */
     text-align: center;
 }
-
+/* create grids and populate grids*/
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -194,7 +181,6 @@ body {
     padding: 20px;
     max-width: 800px;
     background-color: #222;
-    /* Slightly lighter than background for contrast */
     color: #e0e0e0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -230,6 +216,7 @@ body {
     background-position: center;
 }
 
+/*css for checkout and basket*/
 .checkout-container {
     display: flex;
     max-width: 1200px;
@@ -249,7 +236,7 @@ body {
     border-radius: 5px;
     background-color: #222;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column; 
 }
 
 .basket h3 {
@@ -301,7 +288,7 @@ body {
 #tos-agreement input[type="checkbox"] {
     margin-right: 10px;
     accent-color: #007bff;
-    /* Accent color for the checkbox */
+    /* Accent colour for the checkbox */
 }
 
 /* Submit Button Styling */
@@ -331,7 +318,6 @@ body {
     height: 500px;
     width: 100%;
     margin-top: 80px;
-    /* Offset for the fixed navbar */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -340,7 +326,7 @@ body {
 .side-nav {
     z-index: 1002;
 }
-
+/*make sure Legend stays on top of map*/
 .legend {
     position: absolute;
     top: 10px;
@@ -350,12 +336,11 @@ body {
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1005;
-    /* Higher than the map to ensure visibility */
     font-size: 14px;
     color: #333;
     width: 200px;
 }
-
+/*styling for legend and overlay of map*/
 .legend h3 {
     margin: 0;
     font-size: 16px;
@@ -388,41 +373,31 @@ body {
     border-radius: 0;
 }
 
-/* log in page -->*/
+/* log in page */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #1a1a1a;
-    /* Dark background for a monotone theme */
     color: #e0e0e0;
-    /* Light text color for contrast */
 }
 
 /* Form container */
 .container {
     position: middle;
     max-width: 600px;
-    /* Limit the width of the form */
     margin-top: 80px;
-    /* Offset for fixed navbar */
     padding: 20px;
 }
 
 /* Form Styling */
 form {
     background-color: #222;
-    /* Slightly darker background for contrast */
     padding: 30px;
-    /* Added padding for form elements */
     border-radius: 8px;
-    /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Box shadow for depth */
     color: #e0e0e0;
-    /* Light text color */
     transition: transform 0.3s ease;
-    /* Smooth transition effect */
 }
 
 form.logout-form{
@@ -445,7 +420,6 @@ form h1 {
 /* Form group (input fields) */
 .form-group {
     margin-bottom: 20px;
-    /* Space between form fields */
 }
 
 /* Form labels */
@@ -454,26 +428,18 @@ form h1 {
     font-size: 16px;
     margin-bottom: 5px;
     display: block;
-    /* Ensure the label is above the input field */
 }
 
 /* Form input fields */
 .form-control {
     width: 100%;
-    /* Full width input */
     padding: 10px;
-    /* Padding for comfort */
     border: 1px solid #333;
-    /* Dark border for contrast */
     border-radius: 5px;
-    /* Rounded edges */
     background-color: #333;
-    /* Dark background for input fields */
     color: #fff;
-    /* White text for input fields */
     font-size: 16px;
     transition: background-color 0.3s ease;
-    /* Smooth background color transition */
     align: center;
 }
 
@@ -481,28 +447,22 @@ form h1 {
 .form-control:focus {
     outline: none;
     border-color: #007bff;
-    /* Light blue border on focus */
     background-color: #444;
-    /* Slightly lighter background */
     align: center;
 }
 
 /* Submit buttons */
 button[type="submit"] {
     background-color: #007bff;
-    /* Blue background */
     color: white;
     padding: 10px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
-    /* Rounded edges */
     width: 100%;
-    /* Full width button */
     cursor: pointer;
-    /* Pointer cursor on hover */
     transition: background-color 0.3s ease;
-    /* Smooth transition effect */
+   
 }
 
 button{
@@ -512,7 +472,6 @@ button{
 /* Button hover effect */
 button[type="submit"]:hover {
     background-color: #0056b3;
-    /* Darker blue on hover */
 }
 
 /* Spacing between forms */
@@ -538,23 +497,18 @@ button[type="submit"]:hover {
 
     form h1 {
         font-size: 20px;
-        /* Smaller heading for mobile */
+        /* Smaller heading for phone */
     }
 }
 
 /* Profile Header Styling */
 .profile-header {
     background-color: #000;
-    /* Black background */
     color: white;
-    /* White text to contrast against the black background */
     padding: 40px 20px 20px 20px;
-    /* Extra padding at the top to account for spacing from the navbar */
     text-align: center;
     border-bottom: 2px solid #333;
-    /* Dark border to match the theme */
     margin-top: 60px;
-    /* Ensure it's below the navbar */
 }
 
 .user-info {
@@ -570,65 +524,59 @@ button[type="submit"]:hover {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    /* Ensure the image covers the entire circle */
     border: 3px solid #888;
-    /* Border to add a little emphasis around the profile picture */
 }
 
 h1#user-name {
     font-size: 24px;
     color: white;
-    /* White text for the user's name */
     margin: 0;
 }
 
 p#user-location {
     font-size: 16px;
     color: #bbb;
-    /* Light grey for location to stand out against black background */
     margin: 5px 0;
 }
 
 p#user-Description {
     font-size: 14px;
     color: #ccc;
-    /* Lighter color for description */
     margin: 0;
     font-style: italic;
-    /* Italics for the description */
+ 
 }
 
 /* Hover effect for the profile picture */
 .profile-pic:hover {
     transform: scale(1.05);
-    /* Slight zoom effect */
     transition: transform 0.3s ease-in-out;
 }
-
+/*styling for milestones profile page */
 .milestone {
-    text-align: center; /* Center the text and image */
-    margin: 20px 0; /* Add some space around the award section */
+    text-align: center; 
+    margin: 20px 0; 
     padding: 20px;
-    border: 2px solid #007BFF; /* Border color */
-    border-radius: 10px; /* Slightly rounded corners */
-    background-color: #f9f9f9; /* Light background for the award section */
-    width: 250px; /* Fixed width for the award section */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow around the section */
+    border: 2px solid #007BFF; 
+    border-radius: 10px; 
+    background-color: #f9f9f9; 
+    width: 250px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 .milestone img {
-    width: 100px; /* Set the width of the image */
-    height: 100px; /* Set the height of the image */
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover; /* Ensure the image fits well within the circle */
-    margin-bottom: 15px; /* Space between image and description */
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-bottom: 15px; 
 }
 .milestone p {
-    font-size: 14px; /* Smaller text size for description */
-    color: #555; /* Slightly dark color for the text */
-    margin: 0; /* Remove any default margin */
+    font-size: 14px; 
+    color: #555;
+    margin: 0; 
 }
 .Award h2 {
-    font-size: 14px; /* Smaller text size for description */
-    color: #555; /* Slightly dark color for the text */
-    margin: 0; /* Remove any default margin */
+    font-size: 14px; 
+    color: #555; 
+    margin: 0; 
 }

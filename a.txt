@@ -1,13 +1,14 @@
 <?php
+//start the session and verify user is logged in
 include("functions.php");
 session_start();
-sessionCheck(); // Ensure the user is logged in
+sessionCheck(); 
 $conn = getConnection();
 
-// Fetch the listing ID from the GET request
+//check if listingID is there then get the user ID of person logged in
 if (isset($_GET['listing_id'])) {
     $listing_id = $_GET['listing_id'];
-    $user_id = $_SESSION["user_id"]; // Get the current user ID from session
+    $user_id = $_SESSION["user_id"]; 
 
     // Reserve the listing by updating the 'orderedBy' column
     $update_sql = "UPDATE listings SET orderedBy = :user_id WHERE ID = :listing_id AND orderedBy IS NULL";
@@ -16,17 +17,17 @@ if (isset($_GET['listing_id'])) {
     $update_stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
     $update_stmt->execute();
 
-    // Check if the update was successful (i.e., the listing was not already reserved)
+    // Confirm if listening is reserved
     if ($update_stmt->rowCount() > 0) {
         // Store the listing ID in the session for the cart
         $_SESSION['cart'] = [$listing_id];
     } else {
-        // Handle the case where the listing was already reserved (perhaps redirect with an error message)
+        //redirect to homepeage if listing is reserved
         header("Location: index.php?error=Listing already reserved");
         exit();
     }
 
-    // Fetch the listing details for display on the checkout page
+    // Fetch the listing details and display on the checkout page
     $sql = "SELECT * FROM listings WHERE ID = :listing_id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":listing_id", $listing_id, PDO::PARAM_INT);
@@ -43,7 +44,7 @@ if ($listing) {
     $totalPrice += $listing['price'];
 }
 
-// Handle the checkout process (submitted form)
+// Handle the checkout process
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $_POST['name'];
     $address = $_POST['address'];
@@ -52,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Process the payment or finalize the order here
     // After successful checkout, you can clear the cart
     unset($_SESSION['cart']);
-    header("Location: confirmation.php"); // Redirect to confirmation page
+    header("Location: confirmation.php"); 
     exit();
 }
 ?>
