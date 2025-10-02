@@ -244,18 +244,6 @@ compost-connect/
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to contribute to Compost Connect:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
 ## 📄 License
 
 This project is part of a Team Project and Professionalism course. Please check with the project maintainers for licensing information.
@@ -271,11 +259,3 @@ This project is part of a Team Project and Professionalism course. Please check 
 - **OpenStreetMap** - For map tiles and data
 
 ---
-
-## 📞 Contact & Support
-
-For questions, issues, or suggestions, please use the "Report Issue" feature within the application or contact the development team.
-
----
-
-**Made with 💚 for a sustainable future**
